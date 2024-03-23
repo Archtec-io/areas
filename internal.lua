@@ -252,7 +252,7 @@ end)
 -- check if the area is too big
 areas:registerProtectionCondition(function(pos1, pos2, name)
 	local privs = minetest.get_player_privs(name)
-	local max_size = privs.areas_high_limit and
+	local max_size = archtec.check_areas_high_limit(name, privs) and
 			areas.config.self_protection_max_size_high or
 			areas.config.self_protection_max_size
 	if
@@ -272,7 +272,7 @@ areas:registerProtectionCondition(function(pos1, pos2, name)
 			count = count + 1
 		end
 	end
-	local max_areas = privs.areas_high_limit and
+	local max_areas = archtec.check_areas_high_limit(name, privs) and
 			areas.config.self_protection_max_areas_high or
 			areas.config.self_protection_max_areas
 	if count >= max_areas then
