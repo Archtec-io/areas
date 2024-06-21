@@ -259,7 +259,7 @@ areas:registerProtectionCondition(function(pos1, pos2, name)
 			(pos2.x - pos1.x + 1) > max_size.x or
 			(pos2.y - pos1.y + 1) > max_size.y or
 			(pos2.z - pos1.z + 1) > max_size.z then
-		return false, S("Area is too big.")
+		return false, S("Area is too big. You get the 'areas_high_limit' priv after @1 hours playtime.", archtec.big_areas_playtime / 3600)
 	end
 end)
 
@@ -277,7 +277,7 @@ areas:registerProtectionCondition(function(pos1, pos2, name)
 			areas.config.self_protection_max_areas
 	if count >= max_areas then
 		return false, S("You have reached the maximum amount of"
-				.." areas that you are allowed to protect.")
+				.." areas that you are allowed to protect. You get the 'areas_high_limit' priv after @1 hours playtime.", archtec.big_areas_playtime / 3600)
 	end
 end)
 
